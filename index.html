@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Install Epoch's Game on Android</title>
+    <title>Install Epoch's Game</title>
     <style>
         /* General Reset */
         * {
@@ -59,7 +59,39 @@
             line-height: 1.8;
         }
 
-        ol {
+        /* Table Layout for Platform Selection */
+        .platform-table {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-collapse: collapse;
+        }
+
+        .platform-table td {
+            padding: 1rem;
+            text-align: center;
+            background-color: #1A1A1A;
+            color: #E0E0E0;
+            border: 1px solid #444;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .platform-table td:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+
+        /* Instructions for both platforms */
+        .instructions {
+            display: none;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .instructions.active {
+            display: block;
+        }
+
+        .instructions ol {
             margin: 1.5rem 0;
             padding-left: 1.5rem;
         }
@@ -76,16 +108,6 @@
             background: #333333;
             transform: scale(1.02);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
-        }
-
-        a {
-            color: #BBBBBB;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #E0E0E0;
         }
 
         /* Download Button */
@@ -172,25 +194,61 @@
         <h1>Install Epoch's Game</h1>
     </header>
     <main>
-        <h2>Welcome!</h2>
-        <p>Follow these steps to install Epoch's Game on your Android device:</p>
-        <ol>
-            <li>Tap the 'Download APK' button below to download the APK file.</li>
-            <li>Go to your device settings and enable <strong>Install from Unknown Sources</strong>.</li>
-            <li>Locate the downloaded APK file in your file manager.</li>
-            <li>Tap on the APK file to begin installation.</li>
-            <li>Follow the on-screen prompts to complete the installation.</li>
-            <li>Once installed, open the app and enjoy!</li>
-        </ol>
-        <p><strong>Need help?</strong> Contact us at <a href="mailto:support@epochsgame.com">support@epochsgame.com</a>.</p>
+        <h2>Choose Your Platform</h2>
+        <p>Select a platform to view the installation instructions:</p>
 
-        <!-- Download Button -->
-        <a href="https://drive.usercontent.google.com/download?id=1sAnkICpSBmwc_hxF_Iq87Y1xd5dfx5yy&export=download&authuser=0&confirm=t&uuid=75677331-6089-4743-9fed-b7f66efe6e95&at=AENtkXYSRzNSaPUqi0SBmFmUj4DG:1732422275345" class="download-btn" download>
-            Download APK
-        </a>
+        <!-- Table for Platform Selection -->
+        <table class="platform-table">
+            <tr>
+                <td id="androidBtn">Android</td>
+                <td id="desktopBtn">Desktop</td>
+            </tr>
+        </table>
+
+        <!-- Android Installation Instructions -->
+        <div id="androidInstructions" class="instructions">
+            <h3>Android Installation</h3>
+            <p>Follow these steps to install Epoch's Game on your Android device:</p>
+            <ol>
+                <li>Tap the 'Download APK' button below to download the APK file.</li>
+                <li>Go to your device settings and enable <strong>Install from Unknown Sources</strong>.</li>
+                <li>Locate the downloaded APK file in your file manager.</li>
+                <li>Tap on the APK file to begin installation.</li>
+                <li>Follow the on-screen prompts to complete the installation.</li>
+                <li>Once installed, open the app and enjoy!</li>
+            </ol>
+            <a href="https://drive.usercontent.google.com/download?id=1sAnkICpSBmwc_hxF_Iq87Y1xd5dfx5yy&export=download&authuser=0&confirm=t&uuid=75677331-6089-4743-9fed-b7f66efe6e95&at=AENtkXYSRzNSaPUqi0SBmFmUj4DG:1732422275345" class="download-btn" download>Download APK</a>
+        </div>
+
+        <!-- Desktop Installation Instructions -->
+        <div id="desktopInstructions" class="instructions">
+            <h3>Desktop Installation</h3>
+            <p>Follow these steps to install Epoch's Game on your Desktop:</p>
+            <ol>
+                <li>Download the game installer from the official website.</li>
+                <li>Run the installer once the download is complete.</li>
+                <li>Follow the on-screen prompts to install the game.</li>
+                <li>Once installed, launch the game from the Start Menu or Desktop shortcut.</li>
+                <li>Enjoy playing Epoch's Game on your computer!</li>
+            </ol>
+            <a href="https://epochsgame.com/download" class="download-btn" download>Download Installer</a>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Epoch's Game. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Add event listeners for platform buttons
+        document.getElementById('androidBtn').addEventListener('click', function() {
+            document.getElementById('androidInstructions').classList.add('active');
+            document.getElementById('desktopInstructions').classList.remove('active');
+        });
+
+        document.getElementById('desktopBtn').addEventListener('click', function() {
+            document.getElementById('desktopInstructions').classList.add('active');
+            document.getElementById('androidInstructions').classList.remove('active');
+        });
+    </script>
 </body>
 </html>
