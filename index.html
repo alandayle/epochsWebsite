@@ -64,16 +64,20 @@
             width: 100%;
             margin-bottom: 1.5rem;
             border-collapse: collapse;
+            table-layout: fixed;  /* Ensures that the table columns don't resize unexpectedly */
         }
 
         .platform-table td {
-            padding: 1rem;
+            padding: 1.5rem;
+            width: 50%;  /* Ensures each platform cell takes up equal width */
             text-align: center;
             background-color: #1A1A1A;
             color: #E0E0E0;
             border: 1px solid #444;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1.1rem;
+            font-weight: bold;
         }
 
         .platform-table td:hover {
