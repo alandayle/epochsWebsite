@@ -12,47 +12,51 @@
             box-sizing: border-box;
         }
 
-        /* Body Styles */
+        /* Body Styles for Dark Mode */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: #121212; /* Dark background */
+            color: #E0E0E0; /* Light text */
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Header Styles */
+        /* Header */
         header {
-            background-color: #1e88e5;
-            color: #fff;
-            padding: 1.5rem 0;
+            background: linear-gradient(135deg, #1A1A1A, #222222);
+            color: #E0E0E0;
             text-align: center;
+            padding: 1.5rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            animation: slideDown 0.8s ease-out;
         }
 
         header h1 {
             font-size: 2rem;
+            letter-spacing: 0.05em;
         }
 
         /* Main Content */
         main {
-            padding: 2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            flex-grow: 1;
-            animation: fadeIn 1s ease-in-out;
+            padding: 2rem 1rem;
+            max-width: 800px;
+            margin: auto;
+            animation: fadeIn 0.6s ease-in-out;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #4fc3f7;
+            color: #CCCCCC;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
 
         ol {
@@ -62,63 +66,103 @@
 
         li {
             margin-bottom: 1rem;
-            padding: 0.5rem 0.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 0.3rem;
-            transition: background 0.3s ease;
+            padding: 0.75rem 1rem;
+            background: #1A1A1A;
+            border-radius: 0.5rem;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         li:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: #333333;
+            transform: scale(1.02);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
         }
 
         a {
-            color: #81d4fa;
+            color: #BBBBBB;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: #29b6f6;
+            color: #E0E0E0;
         }
 
-        /* Footer Styles */
-        footer {
-            background-color: #1c1c1c;
-            color: #757575;
+        /* Download Button */
+        .download-btn {
+            display: inline-block;
+            background-color: #6200EE;
+            color: #E0E0E0;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
             text-align: center;
-            padding: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background-color: #3700B3;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1A1A1A, #222222);
+            color: #BBBBBB;
+            text-align: center;
+            padding: 1.5rem 0;
             margin-top: auto;
-            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
         }
 
         footer a {
-            color: #4fc3f7;
+            color: #BBBBBB;
             text-decoration: none;
         }
 
         footer a:hover {
-            color: #29b6f6;
+            color: #E0E0E0;
         }
 
         /* Animations */
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            ol {
+                padding-left: 1rem;
+            }
+
+            li {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -129,19 +173,24 @@
     </header>
     <main>
         <h2>Welcome!</h2>
-        <p>Follow these simple steps to install Epoch's Game on your Android device:</p>
+        <p>Follow these steps to install Epoch's Game on your Android device:</p>
         <ol>
-            <li>Download the APK file from the official website or provided link.</li>
-            <li>Go to your device settings and enable <strong>Install from Unknown Sources</strong> (under Security settings).</li>
-            <li>Locate the downloaded APK file in your device's file manager.</li>
+            <li>Tap the 'Download APK' button below to download the APK file.</li>
+            <li>Go to your device settings and enable <strong>Install from Unknown Sources</strong>.</li>
+            <li>Locate the downloaded APK file in your file manager.</li>
             <li>Tap on the APK file to begin installation.</li>
             <li>Follow the on-screen prompts to complete the installation.</li>
             <li>Once installed, open the app and enjoy!</li>
         </ol>
-        <p><strong>Need help?</strong> Contact our support team at <a href="mailto:support@epochsgame.com">support@epochsgame.com</a>.</p>
+        <p><strong>Need help?</strong> Contact us at <a href="mailto:support@epochsgame.com">support@epochsgame.com</a>.</p>
+
+        <!-- Download Button -->
+        <a href="https://drive.usercontent.google.com/download?id=1sAnkICpSBmwc_hxF_Iq87Y1xd5dfx5yy&export=download&authuser=0&confirm=t&uuid=75677331-6089-4743-9fed-b7f66efe6e95&at=AENtkXYSRzNSaPUqi0SBmFmUj4DG:1732422275345" class="download-btn" download>
+            Download APK
+        </a>
     </main>
     <footer>
-        &copy; 2024 <a href="#">Epoch's Game</a>. All rights reserved.
+        <p>&copy; 2024 Epoch's Game. All rights reserved.</p>
     </footer>
 </body>
 </html>
